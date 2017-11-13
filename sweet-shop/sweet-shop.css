@@ -1,0 +1,230 @@
+/*.width{width: 1100px;margin-left: auto;margin-right: auto;}
+/*header设置*/
+.topheader {
+    width: 1100px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+.topright p {
+    color: darkgray;
+    font-size: 10px;
+}
+
+.topright .tel {
+    color: red;
+    font-size: 18px;
+    height: 45px;
+    line-height: 45px;
+}
+
+.middleheader {
+    background-color: pink;
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+}
+
+.middleheader ul {
+    position: absolute;
+    left: 230px;
+}
+
+.middleheader ul li {
+    float: left;
+}
+
+.middleheader ul li a {
+    color: white;
+    font-weight: bold;
+    padding-right: 60px;
+}
+
+.bottomheader {
+    background: url(../img/甜品/生日蛋糕.jpg) left top repeat-x;
+    height: 280px;
+    position: relative;
+}
+
+.bottomheader h3 {
+    color: white;
+    font-weight: bold;
+    line-height: 1.9em;
+    position: absolute;
+    top: 60px;
+    left: 130px;
+    width: 220px;
+}
+
+.dangao, .drinks_text, .gift_text {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.dangao span, .drinks_text span, .gift_text span {
+    color: hotpink;
+}
+
+.dangao_picture {
+    width: 810px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dangao_picture li {
+    float: left;
+}
+
+.dangao_picture img {
+    width: 150px;
+    height: 150px;
+    margin: 3px 3px;
+    border: yellow dotted 2px;
+}
+
+.dangao_picture p {
+    text-align: center;
+    font-family: castellar;
+    color: deeppink;
+    opacity: 0.6;
+}
+
+.drinks {
+    clear: both;
+    margin-top: 10px;
+}
+
+.drinks_img {
+    background-color: lightyellow;
+    height: 450px;
+}
+
+.drinks_img .width1 {
+    position: relative;
+    width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left_drk {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+}
+
+.right_drk {
+    position: absolute;
+    top: 15px;
+    left: 500px;
+}
+
+.right_drk li {
+    float: left;
+    margin: 7px;
+}
+
+.gift {
+    position: relative;
+}
+
+.gift .img {
+    width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gift .img .top {
+    height: 28px;
+    width: 300px;
+}
+
+.gift .img .top p {
+    font-family: "微软雅黑";
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.gift .img .top p #a {
+    background-color: deeppink;
+    padding: 5px 10px;
+    color: papayawhip;
+}
+
+.gift .img .top p #b {
+    background-color: papayawhip;
+    padding: 5px 10px;
+    color: deeppink;
+}
+
+.bottom {
+    position: relative;
+}
+
+.bottom .one {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    width: 475px;
+    height: 180px;
+    background-color: papayawhip;
+}
+
+.bottom .onetext {
+    width: 250px;
+    height: 155px;
+    margin-top: 20px;
+    line-height: 1.6em;
+    font-family: sans-serif;
+    font-size: 14px
+}
+
+.bottom .oneimg {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.bottom .two {
+    position: absolute;
+    left: 485px;
+    top: 10px;
+    width: 475px;
+    height: 180px;
+    background-color: papayawhip;
+}
+
+.bottom .three {
+    position: absolute;
+    left: 0px;
+    top: 200px;
+    width: 475px;
+    height: 180px;
+    background-color: papayawhip;
+}
+
+.bottom .four {
+    position: absolute;
+    left: 485px;
+    top: 200px;
+    width: 475px;
+    height: 180px;
+    background-color: papayawhip;
+}
+
+#top {
+    clear: both;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    margin-left: 600px;
+}
+
+#top #totop {
+    display: none;
+}
+
+#top a:hover {
+    background: url(../img/texttop.PNG);
+}

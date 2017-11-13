@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="blog-sign-in.css" rel="stylesheet"/>
+    <link type="text/css" href="../css/zhihu-reset.css" rel="stylesheet"/>
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.css"/>
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.min.css"/>
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.structure.css"/>
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.structure.min.css"/>
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.theme.css"/>
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.theme.min.css"/>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script src="jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <title>知乎-登陆-signin</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div id="firstview">
+    <h1 id="text">博客</h1>
+    <p id="title">与世界分享你的知识、经验和见解</p>
+    <div id="choose">
+        <div id="reg"><a href="signup.html">注册</a></div>
+        <div id="signin"><a href="#">登录</a></div>
+    </div>
+    <div id="desc">
+        <input type="text" value="手机号或邮箱" onfocus="this.value=''"
+               onblur="if(this.value==''){this.value='手机号或邮箱'}"/><br/>
+        <input type="text" value="密码" id="three" onfocus="this.value=''" onblur="if(this.value==''){this.value='密码'}"/>
+    </div>
+    <input type="submit" value="登录" id="zhuce"/>
+    <div id="mobile">
+        <div id="left"><a href="#">手机验证码登录</a></div>
+        <div id="right"><p>无法登录？</p></div>
+    </div>
+    <p id="weichat">二维码登录 - 社交账号登陆</p>
+    <input type="submit" value="下载博客园App" id="download"/>
+    <!--
+        描述：jQuery js
+    <div id="dialog" style="border: black 2px solid;">
+        <h2 style="margin-bottom: 6px;">无法登录</h2>
+        <b style="margin-bottom: 40px;">我们提供两种方式帮助你重新登录知乎</b>
+        <a href="#" style="color: white;background-color: blue;height: 50px;width: 200px;line-height: 50px;">找回密码</a>
+        <a href="#">人工申诉</a>
+    </div>
+    -->
+</div>
+<!--
+<script type="text/javascript">
+    $("#right p").click(function(){
+        $("body").css("opacity","0.3")
+        $("#dialog").dialog();
+        //alert(document.getElementById("dialog").innerHTML);
+    })
+</script>
+-->
+<script>
+    //定义画布宽高和生成点的个数
+    var WIDTH = window.innerWidth, HEIGHT = window.innerHeight, POINT = 35;
+
+    var canvas = document.getElementById('canvas');
+    canvas.width = WIDTH,
+        canvas.height = HEIGHT;
+    var context = canvas.getContext('2d');
+    context.strokeStyle = 'rgba(0,0,0,0.02)',
+        context.strokeWidth = 1,
+        context.fillStyle = 'rgba(0,0,0,0.05)';
+    var circleArr = [];
+
+    //线条：开始xy坐标，结束xy坐标，线条透明度
+    function Line(x, y, _x, _y, o) {
+        this.beginX = x,
+            this.beginY = y,
+            this.closeX = _x,
+            this.closeY = _y,
+            this.o = o;
+    }
+
+    //点：圆心xy坐标，半径，每帧移动xy的距离
+    function Circle(x, y, r, moveX, moveY) {
+        this.x = x,
+            this.y = y,
+            this.r = r,
+            this.moveX = moveX,
+            this.moveY = moveY;
+    }
+
+    //生成max和min之间的随机数
+    function num(max, _min) {
+        var min = arguments[1] || 0;
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    // 绘制原点
+    function drawCricle(cxt, x, y, r, moveX, moveY) {
+        var circle = new Circle(x, y, r, moveX, moveY)
+        cxt.beginPath()
+        cxt.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI)
+        cxt.closePath()
+        cxt.fill();
+        return circle;
+    }
+
+    //绘制线条
+    function drawLine(cxt, x, y, _x, _y, o) {
+        var line = new Line(x, y, _x, _y, o)
+        cxt.beginPath()
+        cxt.strokeStyle = 'rgba(0,0,0,' + o + ')'
+        cxt.moveTo(line.beginX, line.beginY)
+        cxt.lineTo(line.closeX, line.closeY)
+        cxt.closePath()
+        cxt.stroke();
+
+    }
+
+    //初始化生成原点
+    function init() {
+        circleArr = [];
+        for (var i = 0; i < POINT; i++) {
+            circleArr.push(drawCricle(context, num(WIDTH), num(HEIGHT), num(15, 2), num(10, -10) / 40, num(10, -10) / 40));
+        }
+        draw();
+    }
+
+    //每帧绘制
+    function draw() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < POINT; i++) {
+            drawCricle(context, circleArr[i].x, circleArr[i].y, circleArr[i].r);
+        }
+        for (var i = 0; i < POINT; i++) {
+            for (var j = 0; j < POINT; j++) {
+                if (i + j < POINT) {
+                    var A = Math.abs(circleArr[i + j].x - circleArr[i].x),
+                        B = Math.abs(circleArr[i + j].y - circleArr[i].y);
+                    var lineLength = Math.sqrt(A * A + B * B);
+                    var C = 1 / lineLength * 7 - 0.009;
+                    var lineOpacity = C > 0.03 ? 0.03 : C;
+                    if (lineOpacity > 0) {
+                        drawLine(context, circleArr[i].x, circleArr[i].y, circleArr[i + j].x, circleArr[i + j].y, lineOpacity);
+                    }
+                }
+            }
+        }
+    }
+
+    //调用执行
+    window.onload = function () {
+        init();
+        setInterval(function () {
+            for (var i = 0; i < POINT; i++) {
+                var cir = circleArr[i];
+                cir.x += cir.moveX;
+                cir.y += cir.moveY;
+                if (cir.x > WIDTH) cir.x = 0;
+                else if (cir.x < 0) cir.x = WIDTH;
+                if (cir.y > HEIGHT) cir.y = 0;
+                else if (cir.y < 0) cir.y = HEIGHT;
+
+            }
+            draw();
+        }, 16);
+    }
+
+</script>
+</body>
+</html>
