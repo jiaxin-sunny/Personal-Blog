@@ -1,0 +1,144 @@
+#canvas {
+    position: relative;
+}
+
+#firstview {
+    position: absolute;
+    left: 530px;
+    top: 50px;
+}
+
+body {
+    text-align: center;
+    background: #F7FAFC;
+}
+
+#firstview {
+    width: 320px;
+    height: 700px;
+    margin: 30px auto;
+}
+
+#firstview #text {
+    color: blue;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+#firstview #title {
+    color: black;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+#choose {
+    position: relative;
+    font-size: 24px;
+    width: 320px;
+    height: 24px;
+    margin-bottom: 25px;
+}
+
+#choose #reg {
+    position: absolute;
+    top: 0;
+    left: 100px;
+}
+
+#choose #reg a {
+    color: grey;
+}
+
+#choose #reg a:hover {
+    color: black;
+}
+
+#choose #signin {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    border-bottom: deepskyblue 2px solid;
+}
+
+#choose #signin a {
+    color: deepskyblue;
+}
+
+#desc input {
+    border-top: darkgrey 2px solid;
+    color: darkgray;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    width: 320px;
+    background-color: white;
+    border-right: darkgrey 2px solid;
+    padding-left: 8px;
+}
+
+#desc #three {
+    border-bottom: darkgrey 2px solid;
+}
+
+#zhuce {
+    color: white;
+    background-color: blue;
+    width: 320px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: blue 1px solid;
+    border-radius: 6px;
+}
+
+#zhuce:hover {
+    opacity: 0.5;
+}
+
+#mobile {
+    width: 320px;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#mobile #left {
+    float: left;
+}
+
+#mobile #left a {
+    color: deepskyblue;
+}
+
+#mobile #right {
+    float: right;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#weichat {
+    color: gray;
+    font-size: 16px;
+    float: left;
+    cursor: pointer;
+}
+
+#download {
+    color: blue;
+    background-color: white;
+    width: 320px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border: blue 1px solid;
+    border-radius: 6px
+}
+
+#dialog {
+    display: none;
+}
